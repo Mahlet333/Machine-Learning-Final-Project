@@ -1,0 +1,17 @@
+Hero vs Villain – CLIP ViT-L/14 Feature Importance Summary
+=========================================================
+
+Total features: 768
+Total samples:  300
+
+Top 10 features by SHAP:
+  - clip_dim_1 (index 1): SHAP=0.0000, log_w=0.0656, rf_imp=0.0006
+  - clip_dim_383 (index 383): SHAP=0.0000, log_w=-0.3732, rf_imp=0.0016
+  - clip_dim_506 (index 506): SHAP=0.0000, log_w=-0.0971, rf_imp=0.0007
+  - clip_dim_507 (index 507): SHAP=0.0000, log_w=-0.0820, rf_imp=0.0006
+  - clip_dim_508 (index 508): SHAP=0.0000, log_w=0.1153, rf_imp=0.0011
+  - clip_dim_509 (index 509): SHAP=0.0000, log_w=-0.2210, rf_imp=0.0010
+  - clip_dim_510 (index 510): SHAP=0.0000, log_w=-0.1284, rf_imp=0.0004
+  - clip_dim_511 (index 511): SHAP=0.0000, log_w=-0.0809, rf_imp=0.0008
+  - clip_dim_512 (index 512): SHAP=0.0000, log_w=-0.3431, rf_imp=0.0011
+  - clip_dim_513 (index 513): SHAP=0.0000, log_w=0.0667, rf_imp=0.0006
