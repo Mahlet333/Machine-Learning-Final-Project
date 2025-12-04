@@ -379,8 +379,10 @@ This project is released for research and educational purposes. Please refer to 
 For questions, issues, or collaboration inquiries, please open an issue on GitHub or contact the repository maintainer.
 
 ---
-
-**Last Updated**: December 2024  
+**Group Members name**:
+1. Mahlet Atrsaw Andargei
+2. Eyerusalem Hawoltu Afework
+**Last Updated**: December 2025  
 **Python Version**: 3.8+  
 **PyTorch Version**: Latest stable  
 **Dataset Size**: ~300 images (150 heroes, 150 villains/antiheroes)
