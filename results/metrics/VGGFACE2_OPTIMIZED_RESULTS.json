@@ -1,0 +1,22 @@
+{
+  "VGGFace2 Transfer Learning (Optimized)": {
+    "accuracy": 0.5833333333333334,
+    "accuracy_percent": "58.3%",
+    "precision": 1.0,
+    "precision_percent": "100.0%",
+    "recall": 0.16666666666666666,
+    "recall_percent": "16.7%",
+    "f1_score": 0.2857142857142857,
+    "auc_roc": 0.7144444444444444,
+    "auc_roc_percent": "71.4%",
+    "improvements": [
+      "Aggressive data augmentation (rotation, blur, shear)",
+      "Class weighting for balanced learning",
+      "Smaller batch size (8) for better gradient",
+      "Gradient clipping for stability",
+      "ReduceLROnPlateau for Phase 1",
+      "Unfroze more layers in Phase 2 (7 layers)",
+      "Higher learning rates for faster convergence"
+    ]
+  }
+}

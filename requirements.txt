@@ -1,0 +1,39 @@
+# Core Deep Learning
+torch>=1.12.0
+torchvision>=0.13.0
+torchaudio>=0.12.0
+
+# Scientific Computing
+numpy>=1.21.0,<2.0.0  # Some scripts require numpy<2
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+
+# Computer Vision
+opencv-python>=4.5.0
+Pillow>=8.0.0
+
+# CLIP and Vision Models
+open-clip-torch>=2.0.0
+
+# Explainability
+shap>=0.40.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Utilities
+tqdm>=4.62.0
+
+# Data Collection (Optional - only needed for hero.py and anti.py)
+serpapi>=0.1.0
+
+# Face Recognition (Optional - only needed for arcface scripts)
+# insightface>=0.7.0  # Uncomment if using arcface scripts
+
+# JSON handling (built-in, but listed for completeness)
+# json - built-in module
+

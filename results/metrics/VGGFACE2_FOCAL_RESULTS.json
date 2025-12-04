@@ -1,0 +1,18 @@
+{
+  "VGGFace2 Transfer Learning (Focal Loss)": {
+    "accuracy": 0.6666666666666666,
+    "accuracy_percent": "66.7%",
+    "precision": 0.75,
+    "precision_percent": "75.0%",
+    "recall": 0.5,
+    "recall_percent": "50.0%",
+    "f1_score": 0.6,
+    "auc_roc": 0.6866666666666666,
+    "auc_roc_percent": "68.7%",
+    "method": "Transfer Learning with Focal Loss",
+    "backbone": "VGG-16 (face-pretrained)",
+    "pretraining": "3.31M human face images (9,131 people)",
+    "loss_function": "Focal Loss (\u03b1=0.25, \u03b3=2.0)",
+    "training_approach": "Two-phase (linear probe + fine-tune)"
+  }
+}

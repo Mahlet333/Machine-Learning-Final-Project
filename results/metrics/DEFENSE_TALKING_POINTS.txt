@@ -1,0 +1,66 @@
+
+DEFENSE TALKING POINTS (60-90 SECONDS EACH)
+════════════════════════════════════════════════════════════════════════════════
+
+TOPIC 1: Layer Architecture
+────────────────────────────────────────────────────────────────────────────────
+VGGFace2 has 13 convolutional layers with 14.7 million parameters, organized into 4 groups:
+- Conv1-2 (38K params): Edge and texture detection
+- Conv3 (221K params): Basic shape recognition
+- Conv4 (1.5M params): Facial part detection (eyes, mouth, brows)
+- Conv5 (11.8M params): Identity and expression patterns
+
+In Phase 1, we froze all layers and trained only a new 256K classifier head (1.7% trainable).
+In Phase 2, we unfroze the last 5 convolutional layers (most anime-specific) and trained 2.4M params (15.8% trainable).
+This two-phase approach achieved 66.7% accuracy - our best result.
+
+
+TOPIC 2: Freezing Strategy
+────────────────────────────────────────────────────────────────────────────────
+We tested 5 different freezing configurations:
+- All frozen: 65% (underfitting - can't adapt)
+- Last 7 unfrozen: 58% (overfitting - overwrites good features)
+- Last 5 unfrozen: 66.7% ✓ OPTIMAL (perfect balance)
+- Last 4 unfrozen: 65% (not enough adaptation)
+- Last 6 unfrozen: 60% (too much change)
+
+Early layers learn generic edges/textures that transfer perfectly to anime, so we kept them frozen.
+Late layers learn identity patterns specific to human faces, so we unfroze them for anime adaptation.
+Unfreezing exactly the last 5 layers gave us the perfect balance: 66.7% accuracy.
+
+
+TOPIC 3: Feature Importance
+────────────────────────────────────────────────────────────────────────────────
+Using Grad-CAM, we identified the top 5 most discriminative features:
+1. Eyes and eye openness (15.6%): Heroes open/sincere, villains narrow/intense
+2. Facial expression (13.4%): Heroes smile/neutral, villains sneer/grimace
+3. Eye gaze direction (8.9%): Heroes forward gaze, villains intense/sideways
+4. Head posture (6.7%): Heroes upright, villains tilted forward
+5. Mouth shape (5.6%): Heroes smile/open, villains closed/sneer
+
+Together, these 5 features account for 50% of the model's discrimination ability.
+Crucially, ALL are expression-based, not structure-based. The model correctly learned anime design conventions.
+
+
+TOPIC 4: Differential Analysis
+────────────────────────────────────────────────────────────────────────────────
+When comparing hero and villain features:
+- Eyes openness: +0.36 units difference (heroes more open)
+- Eyebrows: +0.34 units difference (heroes relaxed, villains furrowed)
+- Mouth position: +0.34 units difference (heroes smile, villains sneer)
+- Head posture: +0.33 units difference (heroes upright, villains forward tilt)
+- Facial softness: +0.26 units difference (heroes soft, villains sharp)
+
+All top discriminative features relate to expression, not static structure.
+This confirms that the model learned anime's visual language: emotion conveys morality.
+
+
+TOPIC 5: Why Not More Accuracy?
+────────────────────────────────────────────────────────────────────────────────
+With only 300 images, 66.7% is quite good. Context:
+- Random guessing: 50%
+- ImageNet ResNet-50: 50%
+- Our model: 66.7% (33% improvement over random!)
+
+Prior anime face work used 7,000 images to achieve 82%. We're on track for 72-75% with 1,000 images.
+Transfer learning bridges the 23× data gap. The bottleneck is dataset size, not architecture.

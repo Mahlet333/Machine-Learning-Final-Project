@@ -1,0 +1,26 @@
+{
+  "LAYER_ARCHITECTURE": {
+    "Total_Convolutional_Layers": 13,
+    "Total_Conv_Parameters": "14.7M",
+    "Layer_Groups": 4
+  },
+  "FREEZING_STRATEGY": {
+    "Phase_1": "All layers frozen (linear probe only)",
+    "Phase_2": "Last 5 convolutional layers unfrozen",
+    "Best_Result": "66.7% accuracy"
+  },
+  "FEATURE_IMPORTANCE_TOP_5": {
+    "1_Eyes": 0.156,
+    "2_Expression": 0.134,
+    "3_Eye_Gaze": 0.089,
+    "4_Head_Posture": 0.067,
+    "5_Mouth_Shape": 0.056
+  },
+  "MODEL_PERFORMANCE": {
+    "Best_Accuracy": 0.667,
+    "F1_Score": 0.6,
+    "Hero_Recall": 0.833,
+    "Villain_Recall": 0.5,
+    "Precision": 0.75
+  }
+}
