@@ -350,6 +350,18 @@ The design-based approach extracts 50+ features across four categories:
 - Reduce batch size or image resolution
 - Use gradient accumulation for effective larger batch sizes
 
+This project leveraged the NYU High Performance Computing (HPC) cluster for large-scale model training, feature extraction, and experimentation. The HPC environment enabled:
+
+- Efficient batch processing for CLIP feature extraction
+
+- Faster training and fine-tuning of deep CNN models
+
+- Large-scale hyperparameter experiments for transfer learning models (VGGFace2, ArcFace)
+
+- Parallel execution of feature engineering pipelines and evaluation scripts
+
+Using NYU’s HPC infrastructure significantly reduced training time and made large, multi-model comparisons computationally feasible.
+
 ## Citation
 
 If you use this code or findings in your research, please cite:
