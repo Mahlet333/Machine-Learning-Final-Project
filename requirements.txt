@@ -28,8 +28,9 @@ seaborn>=0.11.0
 # Utilities
 tqdm>=4.62.0
 
-# Data Collection (Optional - only needed for hero.py and anti.py)
+# Data Collection (Optional - only needed for data collection scripts)
 serpapi>=0.1.0
+python-dotenv>=0.19.0
 
 # Face Recognition (Optional - only needed for arcface scripts)
 # insightface>=0.7.0  # Uncomment if using arcface scripts

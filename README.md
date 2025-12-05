@@ -75,7 +75,7 @@ pip install numpy pandas scikit-learn
 pip install matplotlib seaborn
 pip install pillow opencv-python
 pip install tqdm open-clip-torch shap scipy
-pip install serpapi  # Optional: for data collection
+pip install serpapi python-dotenv  # python-dotenv for environment variables
 ```
 
 **Note**: Some scripts require NumPy < 2.0. If you encounter compatibility issues:
@@ -83,10 +83,30 @@ pip install serpapi  # Optional: for data collection
 pip install "numpy<2"
 ```
 
-### Step 4: Verify Installation
+### Step 4: Configure Environment Variables
+
+For data collection scripts, you need to set up your SerpAPI key:
+
+1. **Get a SerpAPI Key**: Sign up at [serpapi.com](https://serpapi.com) and get your free API key
+
+2. **Create `.env` file**: Copy the example file and add your API key:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. **Edit `.env` file**: Replace `your_serpapi_key_here` with your actual SerpAPI key:
+   ```bash
+   # .env
+   SERPAPI_KEY=your_actual_api_key_here
+   ```
+
+**Note**: The `.env` file is already in `.gitignore` and will not be committed to the repository.
+
+### Step 5: Verify Installation
 
 ```bash
 python -c "import torch; print(f'PyTorch: {torch.__version__}, CUDA: {torch.cuda.is_available()}')"
+python -c "from dotenv import load_dotenv; print('python-dotenv installed successfully')"
 ```
 
 ## Quick Start
@@ -161,16 +181,20 @@ Machine_learning/
 
 To collect new character images:
 
-1. Obtain a SerpAPI key from [serpapi.com](https://serpapi.com)
-2. Update API keys in `scripts/data_collection/download_hero_images.py` and `scripts/data_collection/download_villain_images.py`
-3. Run collection scripts:
+1. **Set up your API key** (if not already done):
+   - Create a `.env` file in the project root (copy from `.env.example`)
+   - Add your SerpAPI key: `SERPAPI_KEY=your_actual_api_key_here`
+   - Get your API key from [serpapi.com](https://serpapi.com)
 
-```bash
-python scripts/data_collection/download_hero_images.py
-python scripts/data_collection/download_villain_images.py
-```
+2. **Run collection scripts**:
+   ```bash
+   python scripts/data_collection/download_hero_images.py
+   python scripts/data_collection/download_villain_images.py
+   ```
 
 Images will be downloaded, cropped to 256×256 square mugshots, and saved to `data/images/hero/` and `data/images/villain/`.
+
+**Note**: The scripts will automatically load your API key from the `.env` file. No need to modify the script files.
 
 ### Training Models
 

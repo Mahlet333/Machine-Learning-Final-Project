@@ -69,6 +69,8 @@ logs/
 # Environment variables
 .env
 .env.local
+# Keep .env.example for reference
+!.env.example
 
 # Temporary files
 *.tmp

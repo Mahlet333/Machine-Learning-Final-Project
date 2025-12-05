@@ -4,12 +4,23 @@ import requests
 from serpapi import GoogleSearch
 from PIL import Image
 from io import BytesIO
+from dotenv import load_dotenv
 
-SERPAPI_KEY = "19d29ab1bbdafce8e22a5bf1277e5c4feec79d8f7450eabd34621a995d0a6e0a"
-
+# Load environment variables from .env file
 # Get the project root directory (2 levels up from this script)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+load_dotenv(os.path.join(PROJECT_ROOT, '.env'))
+
+# Get API key from environment variable
+SERPAPI_KEY = os.getenv('SERPAPI_KEY')
+
+if not SERPAPI_KEY or SERPAPI_KEY == 'your_serpapi_key_here':
+    raise ValueError(
+        "SERPAPI_KEY not found in environment variables. "
+        "Please create a .env file in the project root with your SerpAPI key. "
+        "See .env.example for reference."
+    )
 CSV_FILE = os.path.join(PROJECT_ROOT, "data", "metadata", "Anti_Hero.csv")
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "data", "images", "villain")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
