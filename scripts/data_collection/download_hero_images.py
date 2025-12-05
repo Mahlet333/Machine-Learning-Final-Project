@@ -5,7 +5,7 @@ from serpapi import GoogleSearch
 from PIL import Image
 from io import BytesIO
 
-SERPAPI_KEY = "81e171fdab9f27ccca653d2f7cce64552c05d24747220fa1f0c148ea2ebd076f"
+SERPAPI_KEY = "YOUR API KEY"
 
 # Get the project root directory (2 levels up from this script)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
